@@ -1,7 +1,8 @@
 #include <SoftwareSerial.h>
 
+//#include </home/mike/TinyGPS/src/TinyGPS.h>
+// Use arduino library manager : find TinyGPS and install
 #include <TinyGPS.h>
-
 /* This sample code demonstrates the normal use of a TinyGPS object.
    It requires the use of SoftwareSerial, and assumes that you have a
    4800-baud serial GPS device hooked up on pins 4(rx) and 3(tx).

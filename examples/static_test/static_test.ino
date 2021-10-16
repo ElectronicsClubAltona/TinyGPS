@@ -1,15 +1,17 @@
 #include <TinyGPS.h>
-#include <avr\pgmspace.h>
+// #include <avr\pgmspace.h>
+//   see https://forum.arduino.cc/t/avr-pgmspace-h/263989/2
+// fix 16/10/2021 comment progchar and thus ref to teststrs
 
 /* This sample code demonstrates the basic use of a TinyGPS object.
    Typically, you would feed it characters from a serial GPS device, but 
    this example uses static strings for simplicity.
 */
-prog_char str1[] PROGMEM = "$GPRMC,201547.000,A,3014.5527,N,09749.5808,W,0.24,163.05,040109,,*1A";
-prog_char str2[] PROGMEM = "$GPGGA,201548.000,3014.5529,N,09749.5808,W,1,07,1.5,225.6,M,-22.5,M,18.8,0000*78";
-prog_char str3[] PROGMEM = "$GPRMC,201548.000,A,3014.5529,N,09749.5808,W,0.17,53.25,040109,,*2B";
-prog_char str4[] PROGMEM = "$GPGGA,201549.000,3014.5533,N,09749.5812,W,1,07,1.5,223.5,M,-22.5,M,18.8,0000*7C";
-prog_char *teststrs[4] = {str1, str2, str3, str4};
+//prog_char str1[] PROGMEM = "$GPRMC,201547.000,A,3014.5527,N,09749.5808,W,0.24,163.05,040109,,*1A";
+//prog_char str2[] PROGMEM = "$GPGGA,201548.000,3014.5529,N,09749.5808,W,1,07,1.5,225.6,M,-22.5,M,18.8,0000*78";
+//prog_char str3[] PROGMEM = "$GPRMC,201548.000,A,3014.5529,N,09749.5808,W,0.17,53.25,040109,,*2B";
+//prog_char str4[] PROGMEM = "$GPGGA,201549.000,3014.5533,N,09749.5812,W,1,07,1.5,223.5,M,-22.5,M,18.8,0000*7C";
+//prog_char *teststrs[4] = {str1, str2, str3, str4};
 
 static void sendstring(TinyGPS &gps, const PROGMEM char *str);
 static void gpsdump(TinyGPS &gps);
@@ -35,7 +37,7 @@ void setup()
   gpsdump(test_gps);
   for (int i=0; i<4; ++i)
   {
-    sendstring(test_gps, teststrs[i]);
+//    sendstring(test_gps, teststrs[i]);
     gpsdump(test_gps);
   }
 }
